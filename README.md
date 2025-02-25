@@ -11,15 +11,7 @@
 # 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
 ## 1.1. Clone project.
-```
-git clone https://gitlab.com/anhlta/odoo-fitdnu.git
-```
-
-```
-git checkout cntt15_01
-```
-
-
+Clone mã nguồn từ github
 ## 1.2. cài đặt các thư viện cần thiết
 
 Người sử dụng thực thi các lệnh sau đề cài đặt các thư viện cần thiết
@@ -41,8 +33,9 @@ pip3 install -r requirements.txt
 
 Khởi tạo database trên docker bằng việc thực thi file dockercompose.yml.
 
-`sudo docker-compose up -d`
-
+``` bash
+sudo docker-compose up -d
+```
 # 3. Setup tham số chạy cho hệ thống
 
 ## 3.1. Khởi tạo odoo.conf
@@ -70,4 +63,4 @@ python3 odoo-bin.py -c odoo.conf -u all
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
 Hoàn tất
-    
+
