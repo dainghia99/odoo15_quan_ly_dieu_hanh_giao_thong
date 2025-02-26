@@ -7,7 +7,7 @@
 [![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 
-
+# Phiên bản python tương thích khuyên dùng python3.10
 # 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
 ## 1.1. Clone project.

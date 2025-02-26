@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menu gốc: Quản lý phương tiện -->
+        <menuitem
+            id="menu_root"
+            name="Quản lý phương tiện"
+            sequence="0"/>
+        
+        <!-- Menu Danh mục phương tiện -->
+        <menuitem 
+            id="menu_quan_ly_phuong_tien"
+            name="Danh mục phương tiện"
+            parent="menu_root"
+            sequence="1"/>
+
+        <!-- Menu Phương Tiện -->
+        <menuitem 
+            id="menu_phuong_tien" 
+            name="Phương Tiện" 
+            parent="menu_quan_ly_phuong_tien" 
+            sequence="2"
+            action="action_phuong_tien"
+        />
+
+        <!-- Menu Tài Xế -->
+        <menuitem 
+            id="menu_quan_ly_tai_xe" 
+            name="Tài Xế" 
+            parent="menu_quan_ly_phuong_tien" 
+            sequence="3"
+            action="action_tai_xe"
+        />
+
+        <!-- Menu Bảo Trì Phương Tiện (Vẫn thuộc Quản lý phương tiện nhưng không phải danh mục) -->
+        <menuitem 
+            id="menu_bao_tri_phuong_tien" 
+            name="Bảo Trì Phương Tiện" 
+            parent="menu_root" 
+            sequence="4"
+            action="action_bao_tri_phuong_tien"
+        />
+         <menuitem 
+            id="menu_hanh_trinh_phuong_tien" 
+            name="Quản Lý Hành Trình" 
+            parent="menu_root" 
+            sequence="3"
+            action="action_hanh_trinh_phuong_tien"
+        />
+    </data>
+</odoo>

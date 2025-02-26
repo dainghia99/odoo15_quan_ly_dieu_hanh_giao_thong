@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_bao_tri_phuong_tien_form" model="ir.ui.view">
+            <field name="name">bao_tri_phuong_tien.form</field>
+            <field name="model">bao_tri_phuong_tien</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="phuong_tien_id"/>
+                                <field name="ngay_bao_tri"/>
+                                <field name="chi_phi"/>
+                                <field name="trang_thai"/>
+                            </group>
+                            <group>
+                                <field name="image" widget="image" options="{'size': [400, 400]}" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="mo_ta"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_bao_tri_phuong_tien_tree" model="ir.ui.view">
+            <field name="name">bao_tri_phuong_tien.tree</field>
+            <field name="model">bao_tri_phuong_tien</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="phuong_tien_id"/>
+                    <field name="ngay_bao_tri"/>
+                    <field name="chi_phi"/>
+                    <field name="trang_thai"/>
+                    <field name="image" widget="image" options="{'size': [130, 130]}" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_bao_tri_phuong_tien" model="ir.actions.act_window">
+            <field name="name">Bảo Trì Phương Tiện</field>
+            <field name="res_model">bao_tri_phuong_tien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

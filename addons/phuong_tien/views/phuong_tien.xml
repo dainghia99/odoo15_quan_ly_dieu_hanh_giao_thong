@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_phuong_tien_form" model="ir.ui.view">
+            <field name="name">phuong_tien.form</field>
+            <field name="model">phuong_tien</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="bien_so_xe"/>
+                                <field name="loai_xe"/>
+                                <field name="hang_san_xuat"/>
+                                <field name="nam_san_xuat"/>
+                                <field name="mau_sac"/>
+                                <field name="trang_thai"/>
+                                <field name="tai_xe_id" domain="[('is_driver', '=', True)]"/>
+                            </group>
+                            <group>
+                                <field name="image" widget="image" options="{'size': (128, 128)}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Bảo Trì">
+                                <field name="bao_tri_ids" mode="tree,form">
+                                    <tree>
+                                        <field name="ngay_bao_tri"/>
+                                        <field name="chi_phi"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="ngay_bao_tri"/>
+                                            <field name="chi_phi"/>
+                                            <field name="trang_thai"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_phuong_tien_tree" model="ir.ui.view">
+            <field name="name">phuong_tien.tree</field>
+            <field name="model">phuong_tien</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="bien_so_xe"/>
+                    <field name="loai_xe"/>
+                    <field name="trang_thai"/>
+                    <field name="tai_xe_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="action_phuong_tien" model="ir.actions.act_window">
+            <field name="name">Quản lý Phương Tiện</field>
+            <field name="res_model">phuong_tien</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
