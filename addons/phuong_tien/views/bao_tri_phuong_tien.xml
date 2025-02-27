@@ -14,6 +14,9 @@
                                 <field name="ngay_bao_tri"/>
                                 <field name="chi_phi"/>
                                 <field name="trang_thai"/>
+                                <field name="tai_xe_id"/>
+                                <field name="linh_kien_ids"/>
+
                             </group>
                             <group>
                                 <field name="image" widget="image" options="{'size': [400, 400]}" readonly="1"/>
@@ -37,6 +40,8 @@
                     <field name="ngay_bao_tri"/>
                     <field name="chi_phi"/>
                     <field name="trang_thai"/>
+                    <field name="tai_xe_id"/>
+                    <field name="linh_kien_ids"/>
                     <field name="image" widget="image" options="{'size': [130, 130]}" readonly="1"/>
                 </tree>
             </field>

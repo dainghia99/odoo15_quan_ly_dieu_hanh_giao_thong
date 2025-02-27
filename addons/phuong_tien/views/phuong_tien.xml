@@ -28,6 +28,7 @@
                                         <field name="ngay_bao_tri"/>
                                         <field name="chi_phi"/>
                                         <field name="trang_thai"/>
+
                                     </tree>
                                     <form>
                                         <group>
@@ -54,6 +55,7 @@
                     <field name="loai_xe"/>
                     <field name="trang_thai"/>
                     <field name="tai_xe_id"/>
+
                 </tree>
             </field>
         </record>

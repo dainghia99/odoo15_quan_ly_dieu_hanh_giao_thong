@@ -19,4 +19,6 @@ class TaiXe(models.Model):
     )
 
     # Quan hệ với phương tiện (một tài xế có thể có nhiều phương tiện)
-    phuong_tien_ids = fields.One2many('phuong_tien', 'tai_xe_id', string="Phương Tiện Được Giao")
+    phuong_tien_ids = fields.Many2many('phuong_tien', 'tai_xe_id', string="Phương Tiện Được Giao")
+    bao_tri_ids = fields.One2many('bao_tri_phuong_tien', 'tai_xe_id', string="Lịch sử bảo trì")
+
