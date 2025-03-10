@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_lich_su_nguoi_lai_form" model="ir.ui.view">
+            <field name="name">lich_su_nguoi_lai.form</field>
+            <field name="model">lich_su_nguoi_lai</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tai_xe_id"/>
+                                <field name="phuong_tien_id"/>
+                                <field name="thoi_gian_bat_dau"/>
+                                <field name="thoi_gian_ket_thuc"/>
+                                <field name="trang_thai"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="ghi_chu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_lich_su_nguoi_lai_tree" model="ir.ui.view">
+            <field name="name">lich_su_nguoi_lai.tree</field>
+            <field name="model">lich_su_nguoi_lai</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tai_xe_id"/>
+                    <field name="phuong_tien_id"/>
+                    <field name="thoi_gian_bat_dau"/>
+                    <field name="thoi_gian_ket_thuc"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_lich_su_nguoi_lai" model="ir.actions.act_window">
+            <field name="name">Lịch sử người lái</field>
+            <field name="res_model">lich_su_nguoi_lai</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

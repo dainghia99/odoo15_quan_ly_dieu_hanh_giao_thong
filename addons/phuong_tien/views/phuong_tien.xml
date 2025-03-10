@@ -15,12 +15,25 @@
                                 <field name="nam_san_xuat"/>
                                 <field name="mau_sac"/>
                                 <field name="trang_thai"/>
-                                <field name="tai_xe_id" domain="[('is_driver', '=', True)]"/>
+                                <field name="tai_xe_id" widget="many2many_tags" options="{'no_create': True}"/>
                             </group>
                             <group>
                                 <field name="image" widget="image" options="{'size': (128, 128)}"/>
                             </group>
                         </group>
+
+                        <!-- Thêm group mới cho thông tin mượn trả -->
+                        <group string="Thông tin mượn trả">
+                            <group>
+                                <field name="thoi_gian_muon_tra"/>
+                                <field name="thoi_gian_muon_tra_thuc_te"/>
+                            </group>
+                            <group>
+                                <field name="thoi_gian_muon_tra_muon"/>
+                                <field name="ghi_chu_muon_tra"/>
+                            </group>
+                        </group>
+
                         <notebook>
                             <page string="Bảo Trì">
                                 <field name="bao_tri_ids" mode="tree,form">
@@ -28,7 +41,6 @@
                                         <field name="ngay_bao_tri"/>
                                         <field name="chi_phi"/>
                                         <field name="trang_thai"/>
-
                                     </tree>
                                     <form>
                                         <group>
@@ -38,6 +50,10 @@
                                         </group>
                                     </form>
                                 </field>
+                            </page>
+                            <!-- Thêm trang mới cho thông tin tài xế -->
+                            <page string="Tài Xế">
+                                <field name="tai_xe_id" widget="many2many_tags"/>
                             </page>
                         </notebook>
                     </sheet>
@@ -54,11 +70,14 @@
                     <field name="bien_so_xe"/>
                     <field name="loai_xe"/>
                     <field name="trang_thai"/>
-                    <field name="tai_xe_id"/>
-
+                    <field name="tai_xe_id" widget="many2many_tags"/>
+                    <field name="thoi_gian_muon_tra"/>
+                    <field name="thoi_gian_muon_tra_thuc_te"/>
+                    <field name="thoi_gian_muon_tra_muon"/>
                 </tree>
             </field>
         </record>
+
         <!-- Action -->
         <record id="action_phuong_tien" model="ir.actions.act_window">
             <field name="name">Quản lý Phương Tiện</field>

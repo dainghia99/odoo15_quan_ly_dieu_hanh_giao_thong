@@ -29,6 +29,11 @@ class PhuongTien(models.Model):
 
     image = fields.Image(string="Ảnh Phương Tiện")
 
+    thoi_gian_muon_tra = fields.Datetime(string="Thời gian mượn trả")
+    thoi_gian_muon_tra_thuc_te = fields.Datetime(string="Thời gian mượn trả thực tế")
+    thoi_gian_muon_tra_muon = fields.Datetime(string="Thời gian mượn trả muộn hoặc trễ")
+    ghi_chu_muon_tra = fields.Text(string="Ghi chú mượn trả")
+
     @api.depends('bao_tri_ids.trang_thai')
     def _compute_trang_thai(self):
         for record in self:

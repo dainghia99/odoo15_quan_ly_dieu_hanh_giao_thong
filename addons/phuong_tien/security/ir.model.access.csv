@@ -5,3 +5,4 @@ access_bao_tri_phuong_tien,bao_tri_phuong_tien.bao_tri_phuong_tien,model_bao_tri
 access_hanh_trinh_phuong_tien,hanh_trinh_phuong_tien.hanh_trinh_phuong_tien,model_hanh_trinh_phuong_tien,base.group_user,1,1,1,1
 access_nhien_lieu,nhien_lieu.nhien_lieu,model_nhien_lieu,base.group_user,1,1,1,1
 access_linh_kien_bao_tri,linh_kien_bao_tri.linh_kien_bao_tri,model_linh_kien_bao_tri,base.group_user,1,1,1,1
+access_lich_su_nguoi_lai,lich_su_nguoi_lai.lich_su_nguoi_lai,model_lich_su_nguoi_lai,base.group_user,1,1,1,1

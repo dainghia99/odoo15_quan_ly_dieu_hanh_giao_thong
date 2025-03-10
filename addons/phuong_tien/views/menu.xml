@@ -68,5 +68,12 @@
             sequence="2"
             action="action_linh_kien_bao_tri"
         />
+        <menuitem
+            id="menu_lich_su_nguoi_lai"
+            name="Lịch sử người lái"
+            parent="menu_quan_ly_phuong_tien"
+            sequence="6"
+            action="action_lich_su_nguoi_lai"
+        />
     </data>
 </odoo>

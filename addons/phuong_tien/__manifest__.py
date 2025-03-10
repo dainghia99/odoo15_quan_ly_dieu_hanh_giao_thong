@@ -23,6 +23,7 @@
         'views/bao_tri_phuong_tien.xml',
         'views/hanh_trinh_phuong_tien.xml',
         'views/linh_kien_bao_tri.xml',
+        'views/lich_su_nguoi_lai.xml',
         'views/menu.xml',
     ],
 
