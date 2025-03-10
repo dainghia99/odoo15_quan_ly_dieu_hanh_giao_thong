@@ -40,11 +40,43 @@
             </field>
         </record>
 
+        <!-- Search View -->
+        <record id="view_lich_su_nguoi_lai_search" model="ir.ui.view">
+            <field name="name">lich_su_nguoi_lai.search</field>
+            <field name="model">lich_su_nguoi_lai</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="tai_xe_id"/>
+                    <field name="phuong_tien_id"/>
+                    <field name="trang_thai"/>
+                    <filter string="Đang lái" name="dang_lai" domain="[('trang_thai', '=', 'dang_lai')]"/>
+                    <filter string="Đã kết thúc" name="da_ket_thuc" domain="[('trang_thai', '=', 'da_ket_thuc')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Tài xế" name="group_tai_xe" context="{'group_by': 'tai_xe_id'}"/>
+                        <filter string="Phương tiện" name="group_phuong_tien" context="{'group_by': 'phuong_tien_id'}"/>
+                        <filter string="Trạng thái" name="group_trang_thai" context="{'group_by': 'trang_thai'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Graph View -->
+        <record id="view_lich_su_nguoi_lai_graph" model="ir.ui.view">
+            <field name="name">lich_su_nguoi_lai.graph</field>
+            <field name="model">lich_su_nguoi_lai</field>
+            <field name="arch" type="xml">
+                <graph string="Thống kê lịch sử lái xe">
+                    <field name="tai_xe_id"/>
+                    <field name="trang_thai"/>
+                </graph>
+            </field>
+        </record>
+
         <!-- Action -->
         <record id="action_lich_su_nguoi_lai" model="ir.actions.act_window">
             <field name="name">Lịch sử người lái</field>
             <field name="res_model">lich_su_nguoi_lai</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
     </data>
 </odoo>

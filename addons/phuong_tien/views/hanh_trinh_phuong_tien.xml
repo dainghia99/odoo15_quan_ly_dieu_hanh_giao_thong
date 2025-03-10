@@ -51,11 +51,45 @@
             </field>
         </record>
 
+        <!-- Search View -->
+        <record id="view_hanh_trinh_phuong_tien_search" model="ir.ui.view">
+            <field name="name">hanh_trinh_phuong_tien.search</field>
+            <field name="model">hanh_trinh_phuong_tien</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="phuong_tien_id"/>
+                    <field name="tai_xe_id"/>
+                    <field name="diem_di"/>
+                    <field name="diem_den"/>
+                    <filter string="Đang di chuyển" name="dang_di" domain="[('trang_thai', '=', 'dang_di')]"/>
+                    <filter string="Hoàn thành" name="hoan_thanh" domain="[('trang_thai', '=', 'hoan_thanh')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Tài xế" name="group_tai_xe" context="{'group_by': 'tai_xe_id'}"/>
+                        <filter string="Phương tiện" name="group_phuong_tien" context="{'group_by': 'phuong_tien_id'}"/>
+                        <filter string="Trạng thái" name="group_trang_thai" context="{'group_by': 'trang_thai'}"/>
+                        <filter string="Ngày bắt đầu" name="group_ngay_bat_dau" context="{'group_by': 'ngay_bat_dau:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Graph View -->
+        <record id="view_hanh_trinh_phuong_tien_graph" model="ir.ui.view">
+            <field name="name">hanh_trinh_phuong_tien.graph</field>
+            <field name="model">hanh_trinh_phuong_tien</field>
+            <field name="arch" type="xml">
+                <graph string="Thống kê hành trình" type="line">
+                    <field name="phuong_tien_id"/>
+                    <field name="quang_duong" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
         <!-- Action -->
         <record id="action_hanh_trinh_phuong_tien" model="ir.actions.act_window">
             <field name="name">Hành Trình Phương Tiện</field>
             <field name="res_model">hanh_trinh_phuong_tien</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
     </data>
 </odoo>

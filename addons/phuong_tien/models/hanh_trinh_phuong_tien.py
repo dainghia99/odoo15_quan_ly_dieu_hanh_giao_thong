@@ -6,7 +6,7 @@ class HanhTrinhPhuongTien(models.Model):
     _rec_name = "phuong_tien_id"
 
     phuong_tien_id = fields.Many2one('phuong_tien', string="Phương Tiện", required=True)
-    tai_xe_id = fields.Many2one('res.partner', string="Tài Xế", domain="[('is_driver', '=', True)]")
+    tai_xe_id = fields.Many2one('tai_xe', string="Tài Xế", required=True)
     ngay_bat_dau = fields.Datetime(string="Ngày Bắt Đầu", required=True, default=fields.Datetime.now)
     ngay_ket_thuc = fields.Datetime(string="Ngày Kết Thúc")
     diem_di = fields.Char(string="Điểm Xuất Phát", required=True)

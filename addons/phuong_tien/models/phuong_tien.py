@@ -23,7 +23,8 @@ class PhuongTien(models.Model):
         ('dung', 'Dừng hoạt động')
     ], string="Trạng Thái", default='hoatdong', compute="_compute_trang_thai", store=True)
 
-    tai_xe_id = fields.Many2many('res.partner', string="Tài Xế Phụ Trách", domain=[('is_driver', '=', True)])
+    tai_xe_id = fields.Many2many('tai_xe', string="Tài Xế Phụ Trách")
+    hanh_trinh_ids = fields.One2many('hanh_trinh_phuong_tien', 'phuong_tien_id', string="Hành trình")
     bao_tri_ids = fields.One2many('bao_tri_phuong_tien', 'phuong_tien_id', string="Lịch sử bảo trì")
     nhien_lieu_ids = fields.One2many('nhien_lieu', 'phuong_tien_id', string="Lịch sử nhiên liệu")
 

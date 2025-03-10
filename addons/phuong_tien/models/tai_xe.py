@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class TaiXe(models.Model):
     _name = "tai_xe"
@@ -19,6 +19,7 @@ class TaiXe(models.Model):
     )
 
     # Quan hệ với phương tiện (một tài xế có thể có nhiều phương tiện)
-    phuong_tien_ids = fields.Many2many('phuong_tien', 'tai_xe_id', string="Phương Tiện Được Giao")
+    phuong_tien_ids = fields.Many2many('phuong_tien', string="Phương Tiện Được Giao")
+    hanh_trinh_ids = fields.One2many('hanh_trinh_phuong_tien', 'tai_xe_id', string="Hành trình")
     bao_tri_ids = fields.One2many('bao_tri_phuong_tien', 'tai_xe_id', string="Lịch sử bảo trì")
 

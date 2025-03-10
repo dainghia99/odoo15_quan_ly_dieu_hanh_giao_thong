@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <!-- Form View -->
@@ -15,45 +16,31 @@
                                 <field name="nam_san_xuat"/>
                                 <field name="mau_sac"/>
                                 <field name="trang_thai"/>
-                                <field name="tai_xe_id" widget="many2many_tags" options="{'no_create': True}"/>
+                                <field name="tai_xe_id" widget="many2many_tags"/>
                             </group>
                             <group>
-                                <field name="image" widget="image" options="{'size': (128, 128)}"/>
+                                <field name="image" widget="image" options="{'size': [128, 128]}"/>
                             </group>
                         </group>
-
-                        <!-- Thêm group mới cho thông tin mượn trả -->
-                        <group string="Thông tin mượn trả">
-                            <group>
-                                <field name="thoi_gian_muon_tra"/>
-                                <field name="thoi_gian_muon_tra_thuc_te"/>
-                            </group>
-                            <group>
-                                <field name="thoi_gian_muon_tra_muon"/>
-                                <field name="ghi_chu_muon_tra"/>
-                            </group>
-                        </group>
-
                         <notebook>
-                            <page string="Bảo Trì">
-                                <field name="bao_tri_ids" mode="tree,form">
+                            <page string="Hành Trình">
+                                <field name="hanh_trinh_ids">
                                     <tree>
-                                        <field name="ngay_bao_tri"/>
-                                        <field name="chi_phi"/>
+                                        <field name="tai_xe_id"/>
+                                        <field name="ngay_bat_dau"/>
+                                        <field name="ngay_ket_thuc"/>
                                         <field name="trang_thai"/>
                                     </tree>
-                                    <form>
-                                        <group>
-                                            <field name="ngay_bao_tri"/>
-                                            <field name="chi_phi"/>
-                                            <field name="trang_thai"/>
-                                        </group>
-                                    </form>
                                 </field>
                             </page>
-                            <!-- Thêm trang mới cho thông tin tài xế -->
-                            <page string="Tài Xế">
-                                <field name="tai_xe_id" widget="many2many_tags"/>
+                            <page string="Bảo Trì">
+                                <field name="bao_tri_ids">
+                                    <tree>
+                                        <field name="ngay_bao_tri"/>
+                                        <field name="tai_xe_id"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>
@@ -78,11 +65,45 @@
             </field>
         </record>
 
+        <!-- Search View -->
+        <record id="view_phuong_tien_search" model="ir.ui.view">
+            <field name="name">phuong_tien.search</field>
+            <field name="model">phuong_tien</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="bien_so_xe"/>
+                    <field name="loai_xe"/>
+                    <field name="hang_san_xuat"/>
+                    <field name="tai_xe_id"/>
+                    <filter string="Đang hoạt động" name="hoat_dong" domain="[('trang_thai', '=', 'hoatdong')]"/>
+                    <filter string="Đang bảo trì" name="bao_tri" domain="[('trang_thai', '=', 'baotri')]"/>
+                    <filter string="Dừng hoạt động" name="dung" domain="[('trang_thai', '=', 'dung')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Loại xe" name="group_loai_xe" context="{'group_by': 'loai_xe'}"/>
+                        <filter string="Trạng thái" name="group_trang_thai" context="{'group_by': 'trang_thai'}"/>
+                        <filter string="Năm sản xuất" name="group_nam_san_xuat" context="{'group_by': 'nam_san_xuat'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Graph View -->
+        <record id="view_phuong_tien_graph" model="ir.ui.view">
+            <field name="name">phuong_tien.graph</field>
+            <field name="model">phuong_tien</field>
+            <field name="arch" type="xml">
+                <graph string="Thống kê phương tiện" type="bar">
+                    <field name="loai_xe"/>
+                    <field name="trang_thai" type="row"/>
+                </graph>
+            </field>
+        </record>
+
         <!-- Action -->
         <record id="action_phuong_tien" model="ir.actions.act_window">
             <field name="name">Quản lý Phương Tiện</field>
             <field name="res_model">phuong_tien</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
         </record>
     </data>
 </odoo>
